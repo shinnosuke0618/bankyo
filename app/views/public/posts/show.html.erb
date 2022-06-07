@@ -1,2 +1,38 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row mt-5">
+
+    <h2>ボードゲーム</h2>
+
+    <div class="col-md-3">
+      <%= image_tag @post.get_image, size:'300x300' %>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+      <table class="table">
+        <tr>
+          <th>タイトル</th>
+          <td><%= @post.title %></td>
+        </tr>
+        <tr>
+          <th>説明</th>
+          <td><%= @post.body %></td>
+        </tr>
+
+        <tr>
+          <th>投稿者</th>
+          <td>
+            <%= @post.user.name %>
+          </td>
+        </tr>
+
+
+      </table>
+
+      <% if @post.user == current_user %>
+      <%= link_to '編集する', edit_post_path(@post), class: 'btn btn-success' %>
+      <%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger destroy"%>
+      <% end %>
+      <%= link_to '一覧画面へ', posts_path, class: 'btn btn-primary ml-4' %>
+    </div>
+  </div>
+</div>
