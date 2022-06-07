@@ -16,10 +16,13 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts
+    @post = Post.new
   end
 
   def index
     @users = User.all
+    @post = Post.new
   end
 
   def edit
@@ -29,7 +32,8 @@ class Public::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: "You have updated user successfully."
+      flash[:notice] = "ユーザー情報を更新しました。"
+      redirect_to user_path(@user)
     else
       render "edit"
     end
