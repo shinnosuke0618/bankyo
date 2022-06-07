@@ -1,35 +1,35 @@
-<header class="shadow-sm">
+<header>
   
 
 <% if logged_in? %>
 
 
-            <li>
-              <button type="button" class="btn btn-sm btn-outline-secondary ml-2">
-              <%= link_to logout_path, method: :delete,class: 'nav-link text-dark' do %>
-                <i class="fas fa-sign-out-alt"></i>　ログアウト
-              <% end %>
-              </button>
-            </li>
+  <li>
+    <button type="button" class="btn btn-sm btn-outline-secondary ml-2">
+    <%= link_to logout_path, method: :delete,class: 'nav-link text-dark' do %>
+      <i class="fas fa-sign-out-alt"></i>　ログアウト
+    <% end %>
+    </button>
+  </li>
 
-          
 
-          <% else %>
-            <li>
-              <button type="button" class="btn btn-sm btn-outline-secondary ml-2">
-              <%= link_to new_user_path,class: 'nav-link text-dark' do %>
-                <i class="fas fa-user-plus"></i> 新規登録
-              <% end %>
-              </button>
-            </li>
-            <li>
-              <button type="button" class="btn btn-sm btn-outline-secondary ml-2">
-              <%= link_to login_path ,class: 'nav-link text-dark' do %>
-                <i class="fas fa-sign-in-alt"></i> ログイン
-              <% end %>
-              </button>
-            </li>
 
-          <% end %>
+<% else %>
+  <li>
+    <button type="button" class="btn btn-sm btn-outline-secondary ml-2">
+    <%= link_to new_user_path,class: 'nav-link text-dark' do %>
+      <i class="fas fa-user-plus"></i> 新規登録
+    <% end %>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="btn btn-sm btn-outline-secondary ml-2">
+    <%= link_to login_path ,class: 'nav-link text-dark' do %>
+      <i class="fas fa-sign-in-alt"></i> ログイン
+    <% end %>
+    </button>
+  </li>
+
+<% end %>
 
 </header>
