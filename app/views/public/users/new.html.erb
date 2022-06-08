@@ -1,22 +1,47 @@
-<h1>新規登録</h1>
+<div class='container'>
+  <div class='row d-flex justify-content-around'>
+    <div class="col-sm-12 col-md-8 col-lg-6 px-5 px-sm-0">
 
-<%= form_with model: @user, url: users_path do |f| %>
+      <h2 class="sign_title">Sign up</h2>
+      <p class="title_border">こちらから新規登録お願い致します</p>
 
-<%= f.label :name, "name" %>
-<%= f.text_field :name %>
+      <%= form_with model: @user, url: users_path do |f| %>
+      <%= render 'layouts/errors', obj: @user %>
+        
 
-<%= f.label :introduction, "introduction" %>
-<%= f.text_field :introduction %>
+        <div class="field form-item">
+          <%= f.label :Name %>
+          <%= f.text_field :name, autofocus: true, placeholder:"例）ボードゲーマー", autocomplete: "name" %>
+        </div>
 
-<%= f.label :email, "email" %>
-<%= f.email_field :email %>
+        <div class="field form-item">
+          <%= f.label :Introduction %><br />
+          <%= f.text_field :introduction, placeholder:"例）カタン大好き", autocomplete: "introduction" %>
+        </div>
+        
+        <div class="field form-item">
+          <%= f.label :Email %><br />
+          <%= f.email_field :email,  autofocus: true, placeholder:"sample@example.com", autocomplete: "email" %>
+        </div>
 
-<%= f.label :password, "password" %>
-<%= f.text_field :password %>
+        <div class="field form-item">
+          <%= f.label :Password, "password" %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
 
-<%= f.label :password_confirmation, "password_confirmation" %>
-<%= f.text_field :password_confirmation %>
+        <div class="field form-item">
+          <%= f.label :Password_confirmation, "password_confirmation" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
 
-<%= f.submit "新規登録" %>
+        <div class="actions button-panel">
+          <%= f.submit "Sign up", class: 'button' %>
+        </div>
+       <% end %>
 
-<% end %>
+    <p class="pt-3 title_border">既にご登録済みの方</p>
+    <p><%= link_to "こちら", login_path %>からログインください。</p>
+
+   </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  
   <head>
     <title>Bankyo</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,14 +13,21 @@
   </head>
 
   <body>
+    <div class="first-container">
+      
+      <%= render "layouts/header" %>
+      
+      <!--フラッシュメッセージ -->
+      <% if flash[:notice] %><p class="text-success col-md-5 sm-5 offset-md-1 sm-1"><%= notice %></p>
+        <% else %><p class="text-danger col-md-5 sm-5 offset-md-1 sm-1"><%= alert %></p>
+      <% end %>
     
-    <%= render "layouts/header" %>
-  
-  <main>
-    <%= yield %>
-  </main>
-  
-    <%= render "layouts/footer" %>
-  
+    <main>
+      <%= yield %>
+    </main>
+    
+      <%= render "layouts/footer" %>
+    </div>
   </body>
+  
 </html>
