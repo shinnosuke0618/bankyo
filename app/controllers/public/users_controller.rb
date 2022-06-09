@@ -1,4 +1,5 @@
 class Public::UsersController < ApplicationController
+  before_action :logged_in_user, only:[:show, :index]
   before_action :ensure_correct_user, only: [:edit, :update]
 
   def new
@@ -48,7 +49,7 @@ class Public::UsersController < ApplicationController
   def ensure_correct_user
     @user = User.find(params[:id])
     unless @user == current_user
-      redirect_to user_path(current_user)
+      redirect_to root_url
     end
   end
 

@@ -1,10 +1,11 @@
 class Public::PostsController < ApplicationController
-  before_action :correct_user!, only: [:edit, :update, :destory]
-  
+  before_action :logged_in_user, only: [:new, :index, :show, :create]
+  before_action :correct_user, only: [:edit, :update, :destory]
+
   def new
     @post = Post.new
   end
-  
+
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
@@ -30,7 +31,7 @@ class Public::PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
   end
-  
+
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
@@ -41,7 +42,7 @@ class Public::PostsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
@@ -53,11 +54,11 @@ class Public::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:image, :user_id, :title, :body)
   end
-  
+
   def correct_user
     @post = Post.find(params[:id])
     @user = @post.user
-    redirect_to(books_path) unless @user == current_user
+    redirect_to(posts_path) unless @user == current_user
   end
-  
+
 end
