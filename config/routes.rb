@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+get '/search', to: 'searches#search'
 
   #会員側ルーティング
   scope module: :public do
     root to: "homes#top"
+    post '/guest', to: 'guest_sessions#create'
 
     resources :users, only: [:create, :index, :show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]

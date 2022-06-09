@@ -1,6 +1,7 @@
 class Public::UsersController < ApplicationController
   before_action :logged_in_user, only:[:show, :index]
   before_action :ensure_correct_user, only: [:edit, :update]
+   before_action :ensure_guest_user, only: [:edit]
 
   def new
     @user = User.new
@@ -9,6 +10,7 @@ class Public::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       redirect_to root_url
     else
       render 'new'

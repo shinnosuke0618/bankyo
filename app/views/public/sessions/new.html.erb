@@ -25,6 +25,10 @@
       <p class="pt-3 title_border">会員登録がお済みでない方</p>
       <p><%= link_to "こちら", signup_path %>から新規登録を行ってください。</p>
 
+      <div class="row">
+          <%= link_to 'ゲストユーザー', guest_path, method: :post, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in" %>
+        </div>
+
     </div>
   </div>
 </div>
