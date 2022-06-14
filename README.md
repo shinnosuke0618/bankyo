@@ -1,24 +1,26 @@
-# README
+# Bankyo（盤上共同体）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+ボードゲーマーの為の
+情報共有、コミュニティサイトです
 
-Things you may want to cover:
+### テーマを選んだ理由
+趣味のボードゲームを通して、コミュニティを増やしたい為
 
-* Ruby version
+### ターゲットユーザ
+ボードゲームが好きな全ての人
 
-* System dependencies
+### 主な利用シーン
+- 新しいボードゲームを探している時. 
+- ボードゲーム仲間を集めたい時. 
+- ボードゲームの楽しさを発信したい時.  
 
-* Configuration
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- photo AC(https://www.photo-ac.com/)
