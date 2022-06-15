@@ -38,7 +38,7 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-  
+
   def self.search_for(content, method)
     if method == 'perfect'
       User.where(name: content)
@@ -53,6 +53,6 @@ class User < ApplicationRecord
 
   #Active Storage
   def get_image
-    (image.attached?) ? image : 'no_image_man.jpg'
+    image.attached? ? image : 'no_image_man.jpg'
   end
 end
