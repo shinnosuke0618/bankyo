@@ -28,7 +28,7 @@
       </table>
 
       <% if @post.user == current_user %>
-      <%= link_to '編集する', edit_post_path(@post), class: 'btn btn-success' %>
+      <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-success' %>
       <%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger destroy"%>
       <% end %>
       <%= link_to '一覧画面へ', posts_path, class: 'btn btn-primary ml-4' %>
