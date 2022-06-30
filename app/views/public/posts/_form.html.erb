@@ -1,11 +1,11 @@
 <%= form_with model:post, local:true do |f| %>
 
-  <div class="form-group mt-4">
-    <%= f.label :image, "画像" %>
+  <div class="image_border">
+    <%= f.label :image, "Image" %>
     <%= f.file_field :image, accept: "image/*" %>
   </div>
 
-  <div class="form-group">
+  <div class="field post-form-item">
     <%= f.label :title, "タイトル" %>
     <%= f.text_field :title, class: 'form-control post_name' %>
   </div>
@@ -15,8 +15,8 @@
     <%= f.text_area :body, class: 'form-control post_introduction' %>
   </div>
 
-  <div class="form-group">
-    <%= f.submit class: 'btn btn-success' %>
+  <div class="actions post-button-panel">
+    <%= f.submit class: 'post-button' %>
   </div>
 
 <% end %>
