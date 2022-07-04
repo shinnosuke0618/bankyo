@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-get '/search', to: 'searches#search'
+  get '/search', to: 'searches#search'
+
+  #管理者側ルーティング
+  namespace :admin do
+    get 'login' => 'sessions#new'
+    post 'login' => 'sessions#create'
+    delete 'logout' => 'sessions#destroy'
+  end
+
 
   #会員側ルーティング
   scope module: :public do

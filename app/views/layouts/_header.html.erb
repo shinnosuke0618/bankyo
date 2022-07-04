@@ -28,6 +28,26 @@
               <% end %>
             </li>
 
+          <% elsif admin_logged_in? %>
+
+            <li>
+              <%=  link_to admin_users_path,class: 'nav-link text-light' do %>
+                <i class="fas fa-users"></i> users
+              <% end %>
+            </li>
+
+            <li>
+              <%=  link_to admin_posts_path ,class: 'nav-link text-light' do %>
+                <i class="fas fa-chess"></i> games
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to admin_logout_path, method: :delete,class: 'nav-link text-light' do %>
+                <i class="fas fa-sign-out-alt"></i>　logout
+              <% end %>
+            </li>
+
           <% else %>
 
             <li>

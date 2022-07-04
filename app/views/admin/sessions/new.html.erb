@@ -2,9 +2,9 @@
   <div class='row d-flex justify-content-around'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
 
-      <h2 class="sign_title">Log in</h2>
+      <h2 class="sign_title">Administrator Log in</h2>
 
-      <%= form_for(:session, url: login_path) do |f| %>
+      <%= form_for(:session, url: admin_login_path) do |f| %>
         <div class="field form-item">
           <%= f.label :Email %><br />
           <%= f.email_field :email,  autofocus: true, placeholder:"sample@example.com", autocomplete: "email" %>
@@ -19,13 +19,6 @@
           <%= f.submit "Log in", class: 'button' %>
         </div>
       <% end %>
-
-      <p class="pt-3 title_border">会員登録がお済みでない方</p>
-      <p><%= link_to "こちら", signup_path %>から新規登録を行ってください。</p>
-
-      <div class="row">
-          <%= link_to 'ゲストユーザー', guest_path, method: :post, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in" %>
-        </div>
 
     </div>
   </div>
