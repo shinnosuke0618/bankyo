@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   #管理者側ルーティング
   namespace :admin do
+
+    resources :users, only: [:create, :index, :show, :edit, :update]
+    resources :posts
     get 'login' => 'sessions#new'
     post 'login' => 'sessions#create'
     delete 'logout' => 'sessions#destroy'
